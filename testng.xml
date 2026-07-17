@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="UI Healthcheck Suite" verbose="1">
+    <listeners>
+        <listener class-name="com.biscience.healthcheck.listeners.ScreenshotOnFailureListener"/>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="AI Chatbot Healthcheck">
+        <classes>
+            <class name="com.biscience.healthcheck.tests.ChatbotHealthcheckTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,42 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+allure-results/
+allure-report/
+.allure/
+screenshots/
+*.log
+*.log.*
+/**/*.log
+
+### Temp data ###
+*.xls
+*.xlsx
+*.pdf
+.DS_Store
+target/
+**/target/
+.openapi-generator/
+**/.openapi-generator/
+
+**/intrackAuto.log
+api-testing/intrackAuto.log
+/cloud.md
+**/cloud/
+.playwright-mcp/
+.mcp.json
