@@ -142,17 +142,3 @@ itself reads as a short, declarative list of what happens, with the how living e
 
 Each test method gets its own isolated `BrowserContext` (no shared cookies/state between
 runs), while the browser itself is launched once per test class to amortize startup cost.
-
-## A real bug this suite caught
-
-While building this suite, submitting a question immediately after opening the chat panel
-(fast automated succession, no natural human pauses) was found to reliably cause the
-assistant's reply to be silently dropped: the backend still creates the conversation and
-accepts the message, but the UI never renders any response and no follow-up API call ever
-fires — it hangs indefinitely. This was root-caused by ruling out browser version,
-headless-vs-headed execution, and session/cookie state, leaving a client-side timing race
-as the only explanation. `ChatPanel.open()` now waits for the panel's own `suggestions`
-network call to complete (the last activity consistently observed before a stuck session)
-before allowing submission, rather than papering over it with a blind sleep. It's exactly
-the kind of "blocked by an obvious UI/runtime issue" this healthcheck exists to catch — it
-just happens to affect fast automation too.
