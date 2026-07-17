@@ -6,8 +6,6 @@ name: AI Chatbot Healthcheck
 # workflow_dispatch (pick the target environment), and on pushes that touch the suite
 # itself so a broken healthcheck is caught immediately rather than at the next scheduled run.
 on:
-  schedule:
-    - cron: "*/30 * * * *"
   workflow_dispatch:
     inputs:
       environment:
